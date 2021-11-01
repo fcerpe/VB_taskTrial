@@ -9,9 +9,8 @@ function varargout = preTrialSetup(varargin)
 
     % set direction, speed of that event and if it is a target
     thisEvent.trial_type = cfg.design.blockNames{iBlock};
-    thisEvent.direction = cfg.design.directions(iBlock, iEvent);
-    thisEvent.speedPix = cfg.design.speeds(iBlock, iEvent);
-    thisEvent.target = cfg.design.fixationTargets(iBlock, iEvent);
+    thisEvent.fixTarget = cfg.design.fixationTargets(iBlock, iEvent);
+    thisEvent.stimTarget = cfg.design.stimuliTargets(iBlock, iEvent);
 
     % If this frame shows a target we change the color of the cross
     thisFixation.fixation = cfg.fixation;

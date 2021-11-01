@@ -62,22 +62,19 @@ function [cfg] = expDesign(cfg, displayFigs)
         error('give me something to work with');
     end
 
-    fprintf('\n\nCreating design.\n\n');
-
     [NB_BLOCKS, NB_REPETITIONS, NB_EVENTS_PER_BLOCK, MAX_TARGET_PER_BLOCK] = getDesignInput(cfg);
-    [~, CONDITON1_INDEX, CONDITON2_INDEX] = assignConditions(cfg);
+    [~, CONDITON1_INDEX] = assignConditions(cfg);
 
     if mod(NB_REPETITIONS, MAX_TARGET_PER_BLOCK) ~= 0
         error('number of repetitions must be a multiple of max number of targets');
     end
 
-    RANGE_TARGETS = 1:MAX_TARGET_PER_BLOCK;
+    RANGE_TARGETS = MAX_TARGET_PER_BLOCK;
     targetPerCondition = repmat(RANGE_TARGETS, 1, NB_REPETITIONS / MAX_TARGET_PER_BLOCK);
 
-    numTargetsForEachBlock = zeros(1, NB_BLOCKS);
-    numTargetsForEachBlock(CONDITON1_INDEX) = shuffle(targetPerCondition);
-    numTargetsForEachBlock(CONDITON2_INDEX) = shuffle(targetPerCondition);
-
+    numTargetsForEachBlock = [9,9,9,9,9,9,9,9,9];
+    % numTargetsForEachBlock(CONDITON1_INDEX) = shuffle(targetPerCondition);
+    
     %% Give the blocks the names with condition and design the task in each event
     while 1
 
@@ -108,19 +105,43 @@ function [cfg] = expDesign(cfg, displayFigs)
         end
 
     end
+    
+    %% Put the stimuli in order and assign other targets
+    stimMatrix = zeros(9,80);
+    
+    for i = 1:9
+        for j =1:16:80
+            stimMatrix(i,j:j+15) = randperm(16);
+        end
+    end
 
+    % assign new targets
+    while 1
+        stimTargets = zeros(NB_BLOCKS, NB_EVENTS_PER_BLOCK);
+        for k = 1:NB_BLOCKS
+            nbTarget = numTargetsForEachBlock(k);
+            chosenPosition = setTargetPositionInSequence(NB_EVENTS_PER_BLOCK, nbTarget, [1 NB_EVENTS_PER_BLOCK]);
+            stimTargets(k, chosenPosition) = 1;
+        end
+        % Check rule 3
+        if max(sum(stimTargets)) < NB_REPETITIONS - 1
+            break
+        end
+    end
+    
     %% Now we do the easy stuff
     cfg.design.blockNames = assignConditions(cfg);
 
     cfg.design.nbBlocks = NB_BLOCKS;
 
-    cfg = setDirections(cfg);
-
-    speeds = ones(NB_BLOCKS, NB_EVENTS_PER_BLOCK) * cfg.dot.speedPixPerFrame;
-    cfg.design.speeds = speeds;
+% %     cfg = setDirections(cfg);
+% 
+%     speeds = ones(NB_BLOCKS, NB_EVENTS_PER_BLOCK) * cfg.dot.speedPixPerFrame;
+%     cfg.design.speeds = speeds;
 
     cfg.design.fixationTargets = fixationTargets;
-
+    cfg.design.stimuliTargets = stimTargets;
+    cfg.design.stimuliPresentation = stimMatrix;
     %% Plot
     diplayDesign(cfg, displayFigs);
 

@@ -19,14 +19,14 @@ function [cfg] = setParameters()
     cfg.debug.smallWin = false; % To test on a part of the screen, change to 1
     cfg.debug.transpWin = false; % To test with trasparent full size screen
 
-    cfg.skipSyncTests = 0;
+    cfg.skipSyncTests = 1;
 
     cfg.verbose = 1;
 
     %% Engine parameters
 
-    cfg.testingDevice = 'mri';
-    cfg.eyeTracker.do = true;
+    cfg.testingDevice = 'pc';
+    cfg.eyeTracker.do = false;
     cfg.audio.do = false;
 
     cfg = setMonitor(cfg);
@@ -35,10 +35,10 @@ function [cfg] = setParameters()
     cfg = setKeyboards(cfg);
 
     % MRI settings
-    cfg = setMRI(cfg);
+    % cfg = setMRI(cfg);
     %     cfg.suffix.acquisition = '';
 
-    cfg.pacedByTriggers.do = true;
+    cfg.pacedByTriggers.do = false;
 
     %% Experiment Design
 
@@ -51,14 +51,12 @@ function [cfg] = setParameters()
     cfg.design.localizer = 'MT';
     %     cfg.design.localizer = 'MT_MST';
 
-    cfg.design.motionType = 'translation';
-    cfg.design.motionDirections = [0 0 180 180];
-    cfg.design.names = {'static'; 'motion'};
+    cfg.design.names = {'words'};
 
     % if you have static and motion and `nbRepetions` = 4, this will return 8 blocks (n blocks per
     % hemifield in case of MT/MST localizer)
-    cfg.design.nbRepetitions = 10;
-    cfg.design.nbEventsPerBlock = 10;
+    cfg.design.nbRepetitions = 9;
+    cfg.design.nbEventsPerBlock = 80;
 
     %% Timing
 
@@ -68,12 +66,12 @@ function [cfg] = setParameters()
     % IBI
     % block length = (cfg.eventDuration + cfg.ISI) * cfg.design.nbEventsPerBlock
 
-    cfg.timing.eventDuration = 0.30; % second
+    cfg.timing.eventDuration = 2; % second
 
     % Time between blocs in secs
     cfg.timing.IBI = 0;
     % Time between events in secs
-    cfg.timing.ISI = 0;
+    cfg.timing.ISI = 0.5;
     % Number of seconds before the motion stimuli are presented
     cfg.timing.onsetDelay = 0;
     % Number of seconds after the end all the stimuli before ending the run
@@ -92,7 +90,7 @@ function [cfg] = setParameters()
         % Time between blocks in secs
         cfg.timing.IBI = 0;
         % Time between events in secs
-        cfg.timing.ISI = 0;
+        cfg.timing.ISI = 0.5;
         % Number of seconds before the motion stimuli are presented
         cfg.timing.onsetDelay = 0;
         % Number of seconds after the end all the stimuli before ending the run
@@ -123,36 +121,34 @@ function [cfg] = setParameters()
 
     %% Task(s)
 
-    cfg.task.name = 'visual localizer';
+    cfg.task.name = 'mvpa_trial';
 
     % Instruction
-    cfg.task.instruction = '1-Detect the RED fixation cross\n \n\n';
+    cfg.task.instruction = '1- Detect the RED fixation cross(press C)\n 2-Detect unpresented stimulus (press M)\n\n';
 
     % Fixation cross (in pixels)
     cfg.fixation.type = 'cross';
     cfg.fixation.colorTarget = cfg.color.red;
     cfg.fixation.color = cfg.color.white;
     cfg.fixation.width = .25;
-    cfg.fixation.lineWidthPix = 3;
+    cfg.fixation.lineWidthPix = 2;
     cfg.fixation.xDisplacement = 0;
     cfg.fixation.yDisplacement = 0;
 
     % target
-    cfg.target.maxNbPerBlock = 1;
+    cfg.target.maxNbPerBlock = 9;
     cfg.target.duration = 0.1; % In secs
     cfg.target.type = 'fixation_cross';
     % 'fixation_cross' : the fixation cross changes color
     % 'static_repeat' : dots are in the same position
 
     cfg.extraColumns = { ...
-                        'direction', ...
-                        'speedDegVA', ...
-                        'target', ...
+                        'word', ...
+                        'fixTarget', ...
+                        'wordTarget', ...
                         'event', ...
                         'block', ...
-                        'keyName', ...
-                        'fixationPosition', ...
-                        'aperturePosition'};
+                        'keyName'};
 
     %% orverrireds the relevant fields in case we use the MT / MST localizer
     cfg = setParametersMtMst(cfg);
@@ -161,10 +157,7 @@ end
 
 function cfg = setKeyboards(cfg)
     cfg.keyboard.escapeKey = 'ESCAPE';
-    cfg.keyboard.responseKey = { ...
-                                'r', 'g', 'y', 'b', ...
-                                'd', 'n', 'z', 'e', ...
-                                't'};
+    cfg.keyboard.responseKey = {'m','c'};
     cfg.keyboard.keyboard = [];
     cfg.keyboard.responseBox = [];
 
@@ -177,7 +170,7 @@ end
 function cfg = setMRI(cfg)
     % letter sent by the trigger to sync stimulation and volume acquisition
     cfg.mri.triggerKey = 't';
-    cfg.mri.triggerNb = 5;
+    cfg.mri.triggerNb = 1;
 
     cfg.mri.repetitionTime = 1.8;
 
