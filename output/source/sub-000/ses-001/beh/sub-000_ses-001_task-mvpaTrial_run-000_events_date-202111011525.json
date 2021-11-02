@@ -1,0 +1,79 @@
+{
+    "onset": {
+        "Description": "time elapsed since experiment start",
+        "Units": "s"
+    },
+    "trial_type": {
+        "Description": "types of trial",
+        "Levels": {
+        }
+    },
+    "duration": {
+        "Description": "duration of the event or the block",
+        "Units": "s"
+    },
+    "direction": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "speedDegVA": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "target": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "event": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "block": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "keyName": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "fixationPosition": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "aperturePosition": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    }
+}

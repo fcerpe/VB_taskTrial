@@ -1,0 +1,279 @@
+{
+    "Instructions": [],
+    "TaskName": "visual Localizer",
+    "aperture": {
+        "type": "none",
+        "width": [],
+        "xPos": 0,
+        "xPosPix": 0,
+        "texture": 11
+    },
+    "audio": {
+        "do": false
+    },
+    "bids": {
+        "MRI": {
+            "Instructions": "Detect the RED fixation cross",
+            "TaskDescription": []
+        },
+        "beh": {
+            "Instructions": [],
+            "TaskName": "visual Localizer"
+        },
+        "datasetDescription": {
+            "Acknowledgements": "",
+            "Authors": [""],
+            "BIDSVersion": "",
+            "DatasetDOI": "",
+            "Funding": [""],
+            "HowToAcknowledge": "",
+            "License": "",
+            "Name": "",
+            "ReferencesAndLinks": [""]
+        },
+        "eeg": {
+            "EEGReference": "",
+            "Instructions": "",
+            "PowerLineFrequency": 50,
+            "SamplingFrequency": [],
+            "SoftwareFilters": "n/a",
+            "TaskName": "visual Localizer"
+        },
+        "ieeg": {
+            "Instructions": "",
+            "PowerLineFrequency": 50,
+            "SamplingFrequency": [],
+            "SoftwareFilters": "n/a",
+            "TaskName": "visual Localizer",
+            "iEEGReference": ""
+        },
+        "meg": {
+            "DewarPosition": [],
+            "DigitizedHeadPoints": [],
+            "DigitizedLandmarks": [],
+            "Instructions": "",
+            "PowerLineFrequency": 50,
+            "SamplingFrequency": [],
+            "SoftwareFilters": "n/a",
+            "TaskName": "visual Localizer"
+        },
+        "mri": {
+            "Instructions": "",
+            "RepetitionTime": 1.8,
+            "SliceTiming": [],
+            "TaskDescription": "",
+            "TaskName": "visual Localizer"
+        }
+    },
+    "color": {
+        "background": [0,0,0],
+        "black": [0,0,0],
+        "grey": [127.5,127.5,127.5],
+        "red": [255,0,0],
+        "white": [255,255,255]
+    },
+    "debug": {
+        "do": false,
+        "smallWin": false,
+        "transpWin": false
+    },
+    "design": {
+        "localizer": "MT",
+        "motionType": "translation",
+        "motionDirections": [0,0,180,180],
+        "names": [
+            "static",
+            "motion"
+        ],
+        "nbRepetitions": 4,
+        "nbEventsPerBlock": 16,
+        "blockNames": [
+            "static",
+            "motion",
+            "static",
+            "motion",
+            "static",
+            "motion",
+            "static",
+            "motion"
+        ],
+        "nbBlocks": 8,
+        "directions": [[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[0,180,0,180,0,180,0,180,0,180,0,180,0,180,0,180],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[0,180,0,180,0,180,0,180,0,180,0,180,0,180,0,180],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[180,0,180,0,180,0,180,0,180,0,180,0,180,0,180,0],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[180,0,180,0,180,0,180,0,180,0,180,0,180,0,180,0]],
+        "speeds": [[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865],[7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865,7.476423776161865]],
+        "fixationTargets": [[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]]
+    },
+    "dir": {
+        "output": "C:\\Users\\filip\\Documents\\GitHub\\VB_taskTrial\\output",
+        "outputSubject": "C:\\Users\\filip\\Documents\\GitHub\\VB_taskTrial\\output\\source\\sub-001\\ses-001"
+    },
+    "dot": {
+        "speed": 15,
+        "coherence": 1,
+        "density": 1,
+        "lifeTime": 0.4,
+        "proportionKilledPerFrame": 0,
+        "size": 0.2,
+        "color": [255,255,255],
+        "matrixWidth": 1920,
+        "sizePix": 5.9989908182542,
+        "speedPix": 449.9243113690649,
+        "speedPixPerFrame": 7.476423776161865,
+        "number": 4097,
+        "texture": 12
+    },
+    "extraColumns": [
+        "direction",
+        "speedDegVA",
+        "target",
+        "event",
+        "block",
+        "keyName",
+        "fixationPosition",
+        "aperturePosition"
+    ],
+    "eyeTracker": {
+        "AverageCalibrationError": [],
+        "CalibrationDistance": "",
+        "CalibrationPosition": "",
+        "CalibrationType": "HV5",
+        "Manufacturer": "",
+        "ManufacturersModelName": "",
+        "MaximalCalibrationError": [],
+        "PupilPositionType": "",
+        "RawDataFilters": [],
+        "RawSamples": [],
+        "SamplingFrequency": [],
+        "SoftwareVersions": "",
+        "do": false
+    },
+    "fileName": {
+        "base": "sub-001_ses-001_task-visualLocalizer",
+        "datasetDescription": "C:\\Users\\filip\\Documents\\GitHub\\VB_taskTrial\\output\\dataset_description.json",
+        "date": "202110311417",
+        "dateFormat": "yyyymmddHHMM",
+        "events": "sub-001_ses-001_task-visualLocalizer_run-000_events_date-202110311417.tsv",
+        "modality": "beh",
+        "pattern": "%03.0f",
+        "stim": "sub-001_ses-001_task-visualLocalizer_run-000_stim_date-202110311417.tsv",
+        "suffix": {
+            "acquisition": "",
+            "contrastEnhancement": "",
+            "echo": "",
+            "phaseEncodingDirection": "",
+            "reconstruction": "",
+            "recording": "",
+            "run": "_run-000"
+        },
+        "task": "visualLocalizer",
+        "zeroPadding": 3
+    },
+    "fixation": {
+        "color": [255,255,255],
+        "colorTarget": [255,0,0],
+        "lineWidthPix": 3,
+        "type": "cross",
+        "width": 0.25,
+        "xDisplacement": 0,
+        "yDisplacement": 0,
+        "widthPix": 7.498738522817749,
+        "xDisplacementPix": 0,
+        "yDisplacementPix": 0,
+        "xCoords": [-3.749369261408874,3.749369261408874,0,0],
+        "yCoords": [0,0,-3.749369261408874,3.749369261408874],
+        "allCoords": [[-3.749369261408874,3.749369261408874,0,0],[0,0,-3.749369261408874,3.749369261408874]]
+    },
+    "keyboard": {
+        "escapeKey": "ESCAPE",
+        "keyboard": [],
+        "responseBox": [],
+        "responseKey": [
+            "r",
+            "g",
+            "y",
+            "b",
+            "d",
+            "n",
+            "z",
+            "e",
+            "t"
+        ]
+    },
+    "mri": {
+        "triggerKey": "t",
+        "triggerNb": 5,
+        "repetitionTime": 1.8
+    },
+    "pacedByTriggers": {
+        "do": false
+    },
+    "screen": {
+        "monitorDistance": 40,
+        "monitorWidth": 50,
+        "resolution": [[],[],[]],
+        "idx": 0,
+        "oldResolution": {
+            "width": 1920,
+            "height": 1080,
+            "pixelSize": 32,
+            "hz": 60
+        },
+        "win": 10,
+        "winRect": [0,0,1920,1080],
+        "winWidth": 1920,
+        "winHeight": 1080,
+        "center": [960,540],
+        "FOV": 64.01076641616699,
+        "ppd": 29.99495409127099,
+        "ifi": 0.01661706999875605,
+        "monitorRefresh": 60.1790809134739
+    },
+    "skipSyncTests": 1,
+    "software": {
+        "os": "PCWIN64",
+        "name": "Psychtoolbox",
+        "RRID": "SCR_002881",
+        "version": "3.0.17",
+        "runsOn": "Matlab - 9.10.0.1602886 (R2021a)"
+    },
+    "subject": {
+        "askGrpSess": [true,true],
+        "runNb": "",
+        "sessionNb": 1,
+        "subjectGrp": 1,
+        "subjectNb": 1
+    },
+    "suffix": {
+        "acquisition": [],
+        "contrastEnhancement": [],
+        "echo": [],
+        "phaseEncodingDirection": [],
+        "reconstruction": [],
+        "recording": []
+    },
+    "target": {
+        "maxNbPerBlock": 1,
+        "duration": 0.1,
+        "type": "fixation_cross"
+    },
+    "task": {
+        "name": "visual localizer",
+        "instruction": "1-Detect the RED fixation cross\\n \\n\\n"
+    },
+    "testingDevice": "pc",
+    "text": {
+        "color": [255,255,255],
+        "font": "Courier New",
+        "size": 18,
+        "style": 1
+    },
+    "timing": {
+        "eventDuration": 2,
+        "IBI": 0,
+        "ISI": 0.5,
+        "onsetDelay": 0,
+        "endDelay": 3.6
+    },
+    "useGUI": false,
+    "verbose": 1,
+    "experimentStart": 1127631.360183
+}
