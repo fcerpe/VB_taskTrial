@@ -66,6 +66,8 @@ function [onset, duration, dots] = doDotMo(cfg, thisEvent, thisFixation, thisIma
     drawFixation(thisFixation);
 
     Screen('DrawingFinished', cfg.screen.win);
+    
+    Screen('Close');
 
     vbl = Screen('Flip', cfg.screen.win, vbl + cfg.screen.ifi);
 

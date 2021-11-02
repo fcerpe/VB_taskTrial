@@ -88,7 +88,7 @@ try
             Screen('TextSize', cfg.screen.win, 35);
             DrawFormattedText(cfg.screen.win, double(stimuliUnicode), 'center','center', cfg.text.color);
             Screen('Flip', cfg.screen.win);
-            WaitSecs(3);
+            WaitSecs(30);
         end
         
         previousEvent.target = 0;
