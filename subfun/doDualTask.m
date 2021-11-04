@@ -1,7 +1,7 @@
 % (C) Copyright 2018 Mohamed Rezk
 % (C) Copyright 2020 CPP visual motion localizer developpers
 
-function [onset, duration, dots] = doDotMo(cfg, thisEvent, thisFixation, thisImage, iEvent)
+function [onset, duration, dots] = doDualTask(cfg, thisEvent, thisFixation, thisImage, iEvent)
     % Draws the stimulation of static/moving in 4 directions dots or static
     %
     % DIRECTIONS

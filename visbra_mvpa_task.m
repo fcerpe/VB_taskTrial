@@ -34,7 +34,7 @@ try
 
     cfg = postInitializationSetup(cfg);
 
-    cfg = expDesign(cfg);
+    cfg = expDesignDT(cfg);
     
     % Prepare for the output logfiles with all
     logFile.extraColumns = cfg.extraColumns;
@@ -118,7 +118,7 @@ try
             eval(['thisImage = images.' folder '.' char("w" + currentImgIndex) ';']);
 
             % play the dots and collect onset and duraton of the event
-            [onset, duration] = doDotMo(cfg, thisEvent, thisFixation, thisImage, iEvent);
+            [onset, duration] = doDualTask(cfg, thisEvent, thisFixation, thisImage, iEvent);
 
             thisEvent = preSaveSetup( ...
                                      thisEvent, ...
