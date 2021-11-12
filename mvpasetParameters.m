@@ -66,7 +66,7 @@ function [cfg] = setParameters()
     % IBI
     % block length = (cfg.eventDuration + cfg.ISI) * cfg.design.nbEventsPerBlock
 
-    cfg.timing.eventDuration = 2; % second
+    cfg.timing.eventDuration = 1; % second
 
     % Time between blocs in secs
     cfg.timing.IBI = 0;
@@ -76,48 +76,6 @@ function [cfg] = setParameters()
     cfg.timing.onsetDelay = 0;
     % Number of seconds after the end all the stimuli before ending the run
     cfg.timing.endDelay = 3.6;
-
-    % reexpress those in terms of repetition time
-    if cfg.pacedByTriggers.do
-
-        cfg.pacedByTriggers.quietMode = true;
-        cfg.pacedByTriggers.nbTriggers = 1;
-
-        cfg.timing.eventDuration = cfg.mri.repetitionTime / 2 - 0.04; % second
-
-        % Time between blocs in nb of triggers (remember to consider the nb trigger to wait + 1)
-        cfg.timing.triggerIBI = 4;
-        % Time between blocks in secs
-        cfg.timing.IBI = 0;
-        % Time between events in secs
-        cfg.timing.ISI = 0.5;
-        % Number of seconds before the motion stimuli are presented
-        cfg.timing.onsetDelay = 0;
-        % Number of seconds after the end all the stimuli before ending the run
-        cfg.timing.endDelay = 2;
-
-    end
-
-    %% Visual Stimulation
-
-    % Speed in visual angles / second
-    cfg.dot.speed = 15;
-    % Coherence Level (0-1)
-    cfg.dot.coherence = 1;
-    % Number of dots per visual angle square.
-    cfg.dot.density = 1;
-    % Dot life time in seconds
-    cfg.dot.lifeTime = 0.4;
-    % proportion of dots killed per frame
-    cfg.dot.proportionKilledPerFrame = 0;
-    % Dot Size (dot width) in visual angles.
-    cfg.dot.size = .2;
-    cfg.dot.color = cfg.color.white;
-
-    % Diameter/length of side of aperture in Visual angles
-    cfg.aperture.type = 'none';
-    cfg.aperture.width = []; % if left empty it will take the screen height
-    cfg.aperture.xPos = 0;
 
     %% Task(s)
 
@@ -130,7 +88,7 @@ function [cfg] = setParameters()
     cfg.fixation.type = 'cross';
     cfg.fixation.colorTarget = cfg.color.red;
     cfg.fixation.color = cfg.color.white;
-    cfg.fixation.width = .25;
+    cfg.fixation.width = .4;
     cfg.fixation.lineWidthPix = 2;
     cfg.fixation.xDisplacement = 0;
     cfg.fixation.yDisplacement = 0;

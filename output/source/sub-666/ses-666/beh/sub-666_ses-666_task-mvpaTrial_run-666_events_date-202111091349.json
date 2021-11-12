@@ -1,0 +1,63 @@
+{
+    "onset": {
+        "Description": "time elapsed since experiment start",
+        "Units": "s"
+    },
+    "trial_type": {
+        "Description": "types of trial",
+        "Levels": {
+        }
+    },
+    "duration": {
+        "Description": "duration of the event or the block",
+        "Units": "s"
+    },
+    "word": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "fixTarget": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "wordTarget": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "event": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "block": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    },
+    "keyName": {
+        "Description": "",
+        "Levels": {
+        },
+        "LongName": "",
+        "TermURL": "",
+        "Units": ""
+    }
+}

@@ -18,11 +18,11 @@ end
 initEnv();
 
 % set and load all the parameters to run the experiment
-cfg = setParameters;
+cfg = mvpasetParameters;
 cfg = userInputs(cfg);
 cfg = createFilename(cfg);
 
-load('input/mvpa_trial1101.mat');
+load('mvpa_sota1109.mat');
 
 %%  Experiment
 
@@ -32,18 +32,12 @@ try
     %% Init the experiment
     [cfg] = initPTB(cfg);
 
-    cfg = postInitializationSetup(cfg);
-
     cfg = expDesignDT(cfg);
     
     % Prepare for the output logfiles with all
     logFile.extraColumns = cfg.extraColumns;
     logFile = saveEventsFile('init', cfg, logFile);
     logFile = saveEventsFile('open', cfg, logFile);
-
-    % prepare textures
-    cfg = apertureTexture('init', cfg);
-    cfg = dotTexture('init', cfg);
 
     disp(cfg);
 
@@ -52,7 +46,6 @@ try
 
     % prepare the KbQueue to collect responses
     getResponse('init', cfg.keyboard.responseBox, cfg);
-
 
     %% Experiment Start
 
@@ -83,13 +76,6 @@ try
                           10249 10261 10249 10259 10261 10269 32 32 32 32 32 32 32 32 10251 10241 10277 10249 10261 10269 32 32 32 32 32 32 32 32 ...
                           10243 10241 10247 10249 10261 10269 32 32 32 32 32 32 32 32 10249 10259 10241 10247 10257 10270];
         
-        if iBlock == 1 || iBlock == 4 || iBlock == 7 
-            
-            Screen('TextSize', cfg.screen.win, 35);
-            DrawFormattedText(cfg.screen.win, double(stimuliUnicode), 'center','center', cfg.text.color);
-            Screen('Flip', cfg.screen.win);
-            WaitSecs(30);
-        end
         
         previousEvent.target = 0;
         % For each event in the block
@@ -109,27 +95,14 @@ try
             % Get the image file 
             currentImgIndex = cfg.design.stimuliPresentation(iBlock,iEvent);
             
-            if cfg.design.stimuliTargets(iBlock,iEvent) == 1
-                folder = 'nonwords';
-            else 
-                folder = 'words';
-            end
-            
-            eval(['thisImage = images.' folder '.' char("w" + currentImgIndex) ';']);
+                       
+            eval(['thisImage = images.words.' char("w" + currentImgIndex) ';']);
 
             % play the dots and collect onset and duraton of the event
             [onset, duration] = doDualTask(cfg, thisEvent, thisFixation, thisImage, iEvent);
 
-            thisEvent = preSaveSetup( ...
-                                     thisEvent, ...
-                                     thisFixation, ...
-                                     iBlock, iEvent, ...
-                                     duration, onset, ...
-                                     currentImgIndex, ...
-                                     thisEvent.fixTarget(1), ...
-                                     cfg.design.stimuliTargets(iBlock,iEvent), ...
-                                     cfg, ...
-                                     logFile);
+            thisEvent = preSaveSetup(thisEvent, thisFixation, iBlock, iEvent, duration, onset, currentImgIndex, ...
+                                     thisEvent.fixTarget(1), cfg.design.stimuliTargets(iBlock,iEvent), cfg, logFile);
 
             saveEventsFile('save', cfg, thisEvent);
 

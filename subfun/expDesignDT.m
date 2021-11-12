@@ -72,7 +72,7 @@ function [cfg] = expDesign(cfg, displayFigs)
     RANGE_TARGETS = MAX_TARGET_PER_BLOCK;
     targetPerCondition = repmat(RANGE_TARGETS, 1, NB_REPETITIONS / MAX_TARGET_PER_BLOCK);
 
-    numTargetsForEachBlock = [9,9,9,9,9,9,9,9,9];
+    numTargetsForEachBlock = [8,8,8,8,8,8,8,8,8];
     % numTargetsForEachBlock(CONDITON1_INDEX) = shuffle(targetPerCondition);
     
     %% Give the blocks the names with condition and design the task in each event
